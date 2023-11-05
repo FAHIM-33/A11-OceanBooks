@@ -67,12 +67,16 @@ input:focus {
     color: white;
 }
 
+
 nav a{
     border: 1px solid var(--color-crim); /*This doesn't work*/
     border-radius: 5px;
     padding: 2px 8px;
     color: crimson;
     transition: all 0.2s; 
+}
+nav a:hover{
+    background-color: rgba(220, 20, 60, 0.39);
 }
 
 .banner img{

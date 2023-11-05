@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxios from "../Hooks/useAxios";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
@@ -7,16 +7,18 @@ import Loading from "../Components/Loading";
 const Update = () => {
     const { id } = useParams()
     const axios = useAxios()
+    let nav = useNavigate()
 
     const getBook = async () => {
         let res = await axios.get(`/api/v1/Abook/${id}`)
         return res.data
     }
 
-    let { data, isLoading } = useQuery({
+    let { data, isLoading, refetch } = useQuery({
         queryKey: ['updating'],
         queryFn: getBook
     })
+
     if (isLoading) { return <Loading></Loading> }
 
 
@@ -31,8 +33,14 @@ const Update = () => {
         let img = form.url.value
         let rating = form.rating.value
         let qty = form.qty.value
+
         qty *= 1
-        rating*=1
+        rating *= 1
+
+
+        if (typeof (qty) !== 'number' || typeof (rating) !== 'number') {
+            return toast.error("Insert number")
+        }
 
         let toastID = toast.loading("Updating book...")
 
@@ -48,6 +56,8 @@ const Update = () => {
         axios.put(`/app/v1/update/${id}`, newBook)
             .then(res => {
                 res.data?.modifiedCount &&
+                refetch()
+                nav(-1)
                     toast.success("Updated Successfully", { id: toastID })
             })
             .catch(err => {

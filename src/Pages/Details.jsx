@@ -20,7 +20,7 @@ const Details = () => {
         queryFn: getSingleBook
     })
     if (isLoading) { return <Loading></Loading> }
-
+console.log(data)
     const { img, name, authorName, category, rating, description, qty } = data
 
 

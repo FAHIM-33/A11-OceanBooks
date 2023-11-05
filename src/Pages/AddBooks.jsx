@@ -1,3 +1,4 @@
+
 import useAxios from "../Hooks/useAxios";
 import toast from "react-hot-toast";
 
@@ -14,11 +15,15 @@ const AddBooks = () => {
         let authorName = form.authorName.value
         let img = form.url.value
         let rating = form.rating.value
-        let discription = form.discription.value
+        let description = form.description.value
         let qty = form.qty.value
-        
+
         qty*=1
         rating*=1
+
+        if(typeof(qty) !== 'number' || typeof(rating) !== 'number' ){
+            return toast.error("Insert number")
+        }
 
         let toastID = toast.loading("Adding book...")
 
@@ -28,7 +33,7 @@ const AddBooks = () => {
             authorName,
             img,
             rating,
-            discription,
+            description,
             qty,
         }
         console.log(book)
@@ -92,9 +97,9 @@ const AddBooks = () => {
                         <input type="text" placeholder="4.5" name="rating" className="" />
                     </div>
                     <div className="p-4 lg:p-8">
-                        <label htmlFor="discription">Short discription:</label>
+                        <label htmlFor="description">Short description:</label>
                         <br />
-                        <textarea name="discription" placeholder="Write short discription" className="w-full h-32 bg-fadegray p-3 rounded-md"></textarea>
+                        <textarea name="description" placeholder="Write short discription" className="w-full h-32 bg-fadegray p-3 rounded-md"></textarea>
                     </div>
 
 
