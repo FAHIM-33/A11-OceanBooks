@@ -23,7 +23,6 @@ const Details = () => {
 
     const { img, name, authorName, category, rating, description, qty } = data
 
-    console.log(qty)
 
     return (
         <section className="max-w-7xl mx-auto my-8">
@@ -35,8 +34,9 @@ const Details = () => {
                     {/* <div className='flex-1'></div> */}
                     <p className='mb-8 rounded-sm w-fit bg-high text-white font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>
                     <p className='text-4xl font-semibold border-l-2 border-crim pl-1'>{name}</p>
-                    <p className='mb-8 text-sm mt-2'>by <span className='font-medium text-2xl'> {authorName}</span></p>
-                    <div className="flex flex-col items-center w-fit">
+                    <p className='mb-4 text-sm mt-2'>by <span className='font-medium text-2xl'> {authorName}</span></p>
+                    <p className="font-medium">Quantity: {qty}</p>
+                    <div className="mt-8 flex flex-col items-center w-fit">
                         <Rating
                             className='text-3xl text-crim'
                             readonly

@@ -11,6 +11,7 @@ const Banner = () => {
         modules: [A11y],
         spaceBetween: 0,
         slidesPerView: 1,
+        loop:true,
         // navigation: true,
         onSwiper: (swiper) => {
             // console.log(swiper)
@@ -18,6 +19,10 @@ const Banner = () => {
         },
         onSlideChange: () => console.log('slide change'),
     }
+
+    setInterval(() => {
+        goNext()
+    }, 2000);
 
     function goNext() {
         if (window.swiper) {
