@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import SelectedCatrgory from "../Pages/Category/SelectedCatrgory";
+import Details from "../Pages/Details";
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path:'/category/:category',
                 element:<SelectedCatrgory></SelectedCatrgory>
+            },
+            {
+                path:'/details/:id',
+                element:<Details></Details>
             },
             {
                 path:'/allBooks',

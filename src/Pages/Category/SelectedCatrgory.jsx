@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import Card from "../../Components/Card";
@@ -8,7 +8,8 @@ const SelectedCatrgory = () => {
     const axios = useAxios()
 
     const getBooks = async () => {
-        let res = await axios.get('img.json')
+        let res = await axios.get(`/api/v1/all-books/?category=${category}`)
+        // let res = await axios.get('/img.json')
         return res.data
     }
 
@@ -22,20 +23,24 @@ const SelectedCatrgory = () => {
     return (
         <section className="cont">
             <h2><span className="text-crim">{category}</span> Books</h2>
-            <section>
-                {
-                    isLoading ?
-                        <div className="loader"></div>
-                        :
-                        data?.map((obj, i) => <Card
-                            key={i}
-                            data={obj}
-                        >
-                            
-                        </Card>)
+            {
+                isLoading ?
+                    <div className="loader"></div>
+                    :
+                    <section className="grid grid-cols-2 gap-8">
+                        {
+                            data?.map((obj, i) => <Card
+                                key={i}
+                                data={obj}
+                            >
+                                <Link to={`/details/${obj._id}`}>
+                                    <button className='btn mx-auto block bg-crim w-full py-2 text-white text-xl'>Details</button>
+                                </Link>
+                            </Card>)
+                        }
+                    </section>
+            }
 
-                }
-            </section>
         </section>
     );
 };

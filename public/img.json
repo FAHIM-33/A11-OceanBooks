@@ -1,61 +1,61 @@
 [
     {
         "img": "https://i.ibb.co/zP5MpW1/mis4.jpg",
-        "name": "The Martian",
+        "name": "Invisible Girl",
         "authorName": "Andy Weir",
         "description": "Astronaut Mark Watney is stranded on Mars and must use his ingenuity and resourcefulness to survive until rescue is possible.",
         "rating": 4.5,
-        "category": "Sci-Fi",
-        "qty": 10
+        "category": "Mystery",
+        "qty": 1
     },
     {
         "img": "https://i.ibb.co/fG9NdrY/mis3.webp",
-        "name": "Dune",
+        "name": "The Last Resort",
         "authorName": "Frank Herbert",
         "description": "Set in a distant future amidst interstellar politics and desert planets, the story follows Paul Atreides as he navigates a complex universe.",
         "rating": 4.2,
-        "category": "Sci-Fi",
+        "category": "Mystery",
         "qty": 8
     },
     {
         "img": "https://i.ibb.co/d2pk4mh/mis2.jpg",
-        "name": "Sapiens: A Brief History of Humankind",
+        "name": "The Wilds",
         "authorName": "Yuval Noah Harari",
         "description": "Explores the history of Homo sapiens from the emergence in Africa to the present day, covering significant events and evolutionary leaps.",
-        "rating": 4.8,
-        "category": "History",
-        "qty": 12
+        "rating": 4.4,
+        "category": "Mystery",
+        "qty": 2
     },
     {
         "img": "https://i.ibb.co/kKRRFTg/mis1.jpg",
-        "name": "The Nightingale",
+        "name": "A Minor Fall",
         "authorName": "Kristin Hannah",
         "description": "A novel set in Nazi-occupied France, following the lives of two sisters and their struggles to survive and resist during World War II.",
         "rating": 4.6,
-        "category": "History",
+        "category": "Mystery",
         "qty": 7
     },
     {
         "img": "https://i.ibb.co/5YLdstH/fic4.jpg",
-        "name": "Gone Girl",
+        "name": "The Lost World",
         "authorName": "Gillian Flynn",
         "description": "On a warm summer morning, it is Nick and Amy Dunne's fifth wedding anniversary. Suddenly, Amy disappears and Nick becomes the prime suspect.",
         "rating": 4.0,
-        "category": "Mystery",
-        "qty": 9
+        "category": "Fiction",
+        "qty": 1
     },
     {
         "img": "https://i.ibb.co/FscLS4d/fic3.webp",
-        "name": "The Girl with the Dragon Tattoo",
+        "name": "Hide and Seek",
         "authorName": "Stieg Larsson",
         "description": "A journalist and a hacker are hired to investigate the disappearance of a wealthy industrialist's niece, leading them into a complex web of secrets.",
         "rating": 4.3,
-        "category": "Mystery",
+        "category": "Fiction",
         "qty": 5
     },
     {
         "img": "https://i.ibb.co/gjsc6WZ/fic2.webp",
-        "name": "To Kill a Mockingbird",
+        "name": "Act of Oblivion",
         "authorName": "Harper Lee",
         "description": "Set in the American South during the 1930s, the novel follows Atticus Finch as he defends a black man accused of raping a white woman.",
         "rating": 4.5,
@@ -64,7 +64,7 @@
     },
     {
         "img": "https://i.ibb.co/6Jp0zLn/fic1.jpg",
-        "name": "1984",
+        "name": "The Calculation Star",
         "authorName": "George Orwell",
         "description": "In a dystopian society, Winston Smith struggles against the oppressive regime led by Big Brother, seeking truth and freedom.",
         "rating": 4.7,
@@ -73,17 +73,17 @@
     },
     {
         "img": "https://i.ibb.co/rtWtJtL/his4.jpg",
-        "name": "Book Name",
+        "name": "The Secret History",
         "authorName": "Author Name",
         "description": "Book description",
         "rating": 4.0,
         "category": "History",
-        "qty": 15
+        "qty": 1
     },
     {
         "img": "https://i.ibb.co/D4ZcKVJ/his3.png",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "The Last Mughal",
+        "authorName": "Willian Dalyrymle",
         "description": "Book description",
         "rating": 4.2,
         "category": "History",
@@ -91,35 +91,35 @@
     },
     {
         "img": "https://i.ibb.co/v4sgtHv/his2.jpg",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "Complete history of The World",
+        "authorName": "Donna Terrt",
         "description": "Book description",
-        "rating": 4.6,
+        "rating": 2.6,
         "category": "History",
         "qty": 20
     },
     {
         "img": "https://i.ibb.co/S5W5wfF/his1.webp",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "Palestine: A Four thousand year history",
+        "authorName": "Nur Mashala",
         "description": "Book description",
-        "rating": 4.3,
+        "rating": 5,
         "category": "History",
         "qty": 25
     },
     {
         "img": "https://i.ibb.co/n3znTGv/sci4.webp",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "Factial noise",
+        "authorName": "Paolini",
         "description": "Book description",
         "rating": 3.8,
         "category": "Sci-Fi",
-        "qty": 14
+        "qty": 1
     },
     {
         "img": "https://i.ibb.co/Fx1CrZQ/sci3.jpg",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "Hall Harry",
+        "authorName": "Andy Warner",
         "description": "Book description",
         "rating": 4.1,
         "category": "Sci-Fi",
@@ -127,8 +127,8 @@
     },
     {
         "img": "https://i.ibb.co/5sPJx67/sci2.jpg",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "The Martian",
+        "authorName": "Andy Weir",
         "description": "Book description",
         "rating": 4.5,
         "category": "Sci-Fi",
@@ -136,12 +136,12 @@
     },
     {
         "img": "https://i.ibb.co/McRKJzh/sci1.jpg",
-        "name": "Book Name",
-        "authorName": "Author Name",
+        "name": "A Desolation called Peace",
+        "authorName": "Martin Alex",
         "description": "Book description",
         "rating": 4.4,
         "category": "Sci-Fi",
-        "qty": 16
+        "qty": 4
     }
 ]
 
