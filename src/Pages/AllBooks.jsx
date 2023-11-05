@@ -19,13 +19,12 @@ const AllBooks = () => {
     })
 
     if (isLoading) { return <Loading></Loading> }
-    console.log(data, isLoading)
 
 
     return (
         <section className="cont">
             <h2><span className="text-crim">All</span> Books</h2>
-            <div>
+            <section className="grid grid-cols-2 gap-8">
                 {
                     data.map(obj => <Card
                         key={obj._id}
@@ -36,7 +35,7 @@ const AllBooks = () => {
                         </Link>
                     </Card>)
                 }
-            </div>
+            </section>
         </section>
     );
 };

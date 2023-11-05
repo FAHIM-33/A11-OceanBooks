@@ -16,6 +16,9 @@ const AddBooks = () => {
         let rating = form.rating.value
         let discription = form.discription.value
         let qty = form.qty.value
+        
+        qty*=1
+        rating*=1
 
         let toastID = toast.loading("Adding book...")
 

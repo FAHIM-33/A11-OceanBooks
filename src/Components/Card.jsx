@@ -6,7 +6,7 @@ import Rating from 'react-rating';
 const Card = ({ data, children }) => {
 
 
-    const { img, name, authorName, category, rating } = data
+    const { img, name, authorName, category, rating, qty } = data
     return (
         <div className='bg-fadegray flex rounded-bl-lg overflow-hidden'>
             <div className='w-6/12'>
@@ -15,11 +15,11 @@ const Card = ({ data, children }) => {
             <div className='relative flex-1 flex flex-col justify-center p-4'>
                 <div className='flex-1'></div>
                 <p className='text-2xl font-semibold border-l-2 border-crim pl-1'>{name}</p>
-                <p className='mb-8 text-sm mt-2'>by <span className='font-medium text-lg'> {authorName}</span></p>
-
+                <p className='mb-4 text-sm mt-2'>by <span className='font-medium text-lg'> {authorName}</span></p>
+                <p className="mb-8 font-medium">Quantity: {qty}</p>
                 <Rating
                     className='text-3xl text-crim'
-                    readonly
+                    
                     initialRating={rating}
                     emptySymbol={<span className="icon-text"><BiStar></BiStar></span>}
                     fullSymbol={<BiSolidStar className=''></BiSolidStar>}

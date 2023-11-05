@@ -39,7 +39,7 @@ const Details = () => {
                     <div className="mt-8 flex flex-col items-center w-fit">
                         <Rating
                             className='text-3xl text-crim'
-                            readonly
+                            
                             initialRating={rating}
                             emptySymbol={<span className="icon-text"><BiStar></BiStar></span>}
                             fullSymbol={<BiSolidStar className=''></BiSolidStar>}

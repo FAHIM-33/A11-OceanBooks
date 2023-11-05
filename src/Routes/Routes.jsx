@@ -7,6 +7,7 @@ import SelectedCatrgory from "../Pages/Category/SelectedCatrgory";
 import Details from "../Pages/Details";
 import AddBooks from "../Pages/AddBooks";
 import AllBooks from "../Pages/AllBooks";
+import Update from "../Pages/Update";
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/update/:id',
-                element:<Details></Details>
+                element:<Update></Update>
             },
             {
                 path:'/allBooks',
