@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './Routes/Routes'
+import { Toaster } from "react-hot-toast";
 
 // Query ---------------
 import {
@@ -19,5 +20,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}></RouterProvider>
     </QueryClientProvider>
+    <Toaster
+      toastOptions={{
+        className: '',
+        style: {
+          fontSize: '1.1rem',
+          color: 'white',
+          backgroundColor: '#111'
+        },
+      }}
+    />
   </React.StrictMode>,
 )

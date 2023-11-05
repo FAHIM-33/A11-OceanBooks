@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import SelectedCatrgory from "../Pages/Category/SelectedCatrgory";
 import Details from "../Pages/Details";
+import AddBooks from "../Pages/AddBooks";
 
 
 const router = createBrowserRouter([
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addBooks',
-                element:<div>Div add</div>
+                element:<AddBooks></AddBooks>
             },
             {
                 path:'/borrowedBooks',

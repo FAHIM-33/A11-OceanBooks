@@ -43,6 +43,24 @@ body{
     font-weight: 500;
 } 
 
+label {
+    font-size: 1.2rem;
+}
+
+input {
+    background-color: #8f8f8f2d;
+    border-radius: 6px;
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: 2px solid crimson;
+}
+
+
 
 .active{
     background-color: rgb(219, 20, 60);
@@ -76,6 +94,10 @@ nav a{
 .btn:active{
     scale: 1; 
     box-shadow: none;
+}
+
+button:disabled{
+    opacity: 0.5;
 }
 
 .loader {
