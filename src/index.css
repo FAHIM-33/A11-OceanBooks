@@ -37,6 +37,7 @@ body{
     
 }
 .cont h2{
+    margin-bottom: 2rem;
     font-size: 2.25rem;
     text-align: center;
     font-weight: 500;

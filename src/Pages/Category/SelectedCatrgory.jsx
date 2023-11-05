@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import Card from "../../Components/Card";
+import Loading from "../../Components/Loading";
 
 const SelectedCatrgory = () => {
     const { category } = useParams()
@@ -18,14 +19,15 @@ const SelectedCatrgory = () => {
         queryFn: getBooks,
     })
 
-    console.log(data, isLoading)
+    // console.log(data, isLoading)
 
     return (
         <section className="cont">
             <h2><span className="text-crim">{category}</span> Books</h2>
             {
                 isLoading ?
-                    <div className="loader"></div>
+                    // <div className="loader"></div>
+                    <Loading></Loading>
                     :
                     <section className="grid grid-cols-2 gap-8">
                         {
