@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { BiCategoryAlt, BiSolidStar, BiStar } from 'react-icons/bi';
 import Rating from "react-rating";
 import Loading from "../Components/Loading";
+import Modal from "./Modal/Modal";
+import { useState } from "react";
 
 const Details = () => {
     let { id } = useParams()
-
     const axios = useAxios()
+    const [open, setOpen] = useState(false)
 
     const getSingleBook = async () => {
         let res = await axios.get(`/api/v1/Abook/${id}`)
@@ -20,7 +22,7 @@ const Details = () => {
         queryFn: getSingleBook
     })
     if (isLoading) { return <Loading></Loading> }
-console.log(data)
+    console.log(data)
     const { img, name, authorName, category, rating, description, qty } = data
 
 
@@ -39,7 +41,7 @@ console.log(data)
                     <div className="mt-8 flex flex-col items-center w-fit">
                         <Rating
                             className='text-3xl text-crim'
-                            
+
                             initialRating={rating}
                             emptySymbol={<span className="icon-text"><BiStar></BiStar></span>}
                             fullSymbol={<BiSolidStar className=''></BiSolidStar>}
@@ -51,11 +53,20 @@ console.log(data)
                         <p className="text-2xl font-semibold">Plot:</p>
                         <p>{description.slice(0, 200)}<span className="text-crim">...Read more</span></p>
                     </div>
-                    <button disabled={qty == 0 ? true : false} className="btn bg-crim py-3 mt-8 text-xl block mx-auto text-white w-4/5">Borrow</button>
-                    
+                    <button
+                        disabled={qty == 0 ? true : false}
+                        className="btn bg-crim py-3 mt-8 text-xl block mx-auto text-white w-4/5"
+                        onClick={() => setOpen(true)}
+                    >Borrow</button>
 
                 </div>
             </div>
+            <section className={`${open ? 'fixed' : 'hidden'} overflow-auto inset-0 bg-[#11111181]`} id='borrow-modal'>
+                <Modal
+                    data={data}
+                    setOpen={setOpen}
+                ></Modal>
+            </section>
         </section>
     );
 };

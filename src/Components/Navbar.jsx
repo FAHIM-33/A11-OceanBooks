@@ -18,7 +18,7 @@ const Navbar = () => {
         <div>
             <nav className="flex bg-mid py-1">
                 <div className="flex flex-1 items-center gap-2 px-2">
-                    <img src="/logo.png" className="w-12 " alt="" />
+                    <img src="/logo.png" className="w-12 " alt="broken logo" />
                     <p className="text-xl font-semibold text-crim">Ocean Books</p>
                 </div>
                 <ul className="flex pl-12 items-center justify-end gap-4 font-semibold p-2">
@@ -31,7 +31,7 @@ const Navbar = () => {
                 {
                     user?.email ?
                         <div className="flex items-center gap-2">
-                            <img className="w-10 border block rounded-full" src={loading || user.photoURL} alt="broken pic" />
+                            {loading || <img className="w-10 border block rounded-full" src={user?.photoURL} alt="" />}
                             <button onClick={logOut} className="px-2 text-black bg-white btn py-1 w-fit">Logout</button>
                         </div>
                         :

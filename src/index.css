@@ -104,6 +104,10 @@ button:disabled{
     opacity: 0.5;
 }
 
+#borrow-modal{
+    transition: all 2s;
+}
+
 .loader {
     border: 5px solid transparent;
     border-top: 5px solid crimson;
