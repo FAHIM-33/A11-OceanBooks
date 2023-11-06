@@ -5,11 +5,13 @@ import useAxios from "../../Hooks/useAxios.jsx";
 import { DateTime } from "luxon";
 import pt from 'prop-types'
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const Modal = ({ data, setOpen, refetch }) => {
     const axios = useAxios()
     const { user } = useContext(AuthContext)
+    const nav = useNavigate()
 
     function dateFormat(date) {
         return DateTime.fromISO(date).toLocaleString({
@@ -21,8 +23,8 @@ const Modal = ({ data, setOpen, refetch }) => {
 
     function decreaseQTY(id, quantity) {
         axios.patch('/api/v1/update-quantity/?operation=decrease', { qty: quantity, productID: id })
-            .then(res => {
-                console.log(res.data)
+            .then(() => {
+                // console.log(res.data)
                 refetch()
             })
             .catch(() => {
@@ -52,6 +54,7 @@ const Modal = ({ data, setOpen, refetch }) => {
         axios.post('/api/v1/borrow-book', body)
             .then(res => {
                 if (res?.data?.acknowledged) {
+                    nav(-1)
                     decreaseQTY(data._id, data.qty)
                     toast.success("Borrowed Successfully", { id: toastID })
                 }
@@ -108,6 +111,7 @@ const Modal = ({ data, setOpen, refetch }) => {
 
 Modal.propTypes = {
     data: pt.object,
-    setOpen: pt.func
+    setOpen: pt.func,
+    refetch: pt.func,
 }
 export default Modal;

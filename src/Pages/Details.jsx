@@ -52,7 +52,7 @@ const Details = () => {
                         <p>{description.slice(0, 200)}<span className="text-crim">...Read more</span></p>
                     </div>
                     <button
-                        disabled={qty == 0 ? true : false}
+                        disabled={qty < 1 ? true : false}
                         className="btn bg-crim py-3 mt-8 text-xl block mx-auto text-white w-4/5"
                         onClick={() => setOpen(true)}
                     >Borrow</button>
