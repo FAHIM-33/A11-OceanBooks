@@ -75,8 +75,8 @@ nav a{
     color: crimson;
     transition: all 0.2s; 
 }
-nav a:hover{
-    background-color: rgba(220, 20, 60, 0.39);
+nav a:hover:not(.login){
+    color: white;
 }
 
 .banner img{
