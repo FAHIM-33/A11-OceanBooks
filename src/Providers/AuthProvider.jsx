@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     let googleProvider = new GoogleAuthProvider();
     let [user, setUser] = useState({})
     let [loading, setLoading] = useState(true)
- 
+
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -41,6 +41,10 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         let unSubscribe = onAuthStateChanged(auth, (user) => {
+            if (user?.email === 'admin@gmail.com') {
+                user.role = 'admin'
+                console.log(user.role)
+            }
             setUser(user)
             setLoading(false)
         })
