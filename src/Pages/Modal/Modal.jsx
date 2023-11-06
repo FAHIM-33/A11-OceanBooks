@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import "./modalStyle.js"
 import { MdCancel } from 'react-icons/md';
 import { AuthContext } from "../../Providers/AuthProvider.jsx";
 import useAxios from "../../Hooks/useAxios.jsx";
 import { DateTime } from "luxon";
+import pt from 'prop-types'
+import toast from "react-hot-toast";
 
-const Modal = ({ data, setOpen }) => {
+
+const Modal = ({ data, setOpen, refetch }) => {
     const axios = useAxios()
     const { user } = useContext(AuthContext)
 
@@ -17,20 +19,46 @@ const Modal = ({ data, setOpen }) => {
         })
     }
 
+    function decreaseQTY(id, quantity) {
+        axios.patch('/api/v1/update-quantity/?operation=decrease', { qty: quantity, productID: id })
+            .then(res => {
+                console.log(res.data)
+                refetch()
+            })
+            .catch(() => {
+                console.log('Failed Patch')
+            })
+    }
+
 
     function handleBorrow(e) {
         e.preventDefault()
         let inputDate = e.target.returnDate.value
         let returnDate = dateFormat(inputDate)
         let today = DateTime.now().toString().split('T')[0]
-
+        setOpen(false)
         let borrowDate = dateFormat(today)
 
-        console.log(returnDate)
-        console.log(borrowDate)
+        const body = {
+            productID: data._id,
+            borrowDate,
+            returnDate,
+            email: user.email,
+            Name: user.displayName
+        }
 
+        let toastID = toast.loading("Borrowing Book...")
 
-        axios.post(`/api/v1/borrow-book/${data.id}`)
+        axios.post('/api/v1/borrow-book', body)
+            .then(res => {
+                if (res?.data?.acknowledged) {
+                    decreaseQTY(data._id, data.qty)
+                    toast.success("Borrowed Successfully", { id: toastID })
+                }
+            })
+            .catch(() => {
+                toast.error("Couldn't borrow", { id: toastID })
+            })
 
 
     }
@@ -53,19 +81,19 @@ const Modal = ({ data, setOpen }) => {
                     <div className="p-4 lg:p-8">
                         <label htmlFor="name">Name:</label>
                         <br />
-                        <input readOnly defaultValue={user.displayName} type="text" placeholder="Book Name" name="name" className="" />
+                        <input readOnly defaultValue={user.displayName} type="text" className="" />
                     </div>
 
                     <div className="p-4 lg:p-8">
                         <label htmlFor="name">Email:</label>
                         <br />
-                        <input defaultValue={user.email} type="text" placeholder="Book Name" name="name" className="" />
+                        <input defaultValue={user.email} type="text" className="" />
                     </div>
 
                     <div className="p-4 lg:p-8">
                         <label className="text-2xl" htmlFor="returnDate">Return Date:</label>
                         <br />
-                        <input type="date" placeholder="" name="returnDate" className="" />
+                        <input type="date" placeholder="" name="returnDate" required className="" />
                     </div>
 
                 </div>
@@ -78,4 +106,8 @@ const Modal = ({ data, setOpen }) => {
     );
 };
 
+Modal.propTypes = {
+    data: pt.object,
+    setOpen: pt.func
+}
 export default Modal;

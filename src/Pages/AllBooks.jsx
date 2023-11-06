@@ -3,19 +3,20 @@ import useAxios from "../Hooks/useAxios";
 import Loading from "../Components/Loading";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
+import { FaFilter } from 'react-icons/fa';
 
 const AllBooks = () => {
 
     const axios = useAxios()
 
-    async function getAllAvailable() {
-        let res = await axios.get('/api/v1/all-books/?available=true')
+    async function getAllBooks() {
+        let res = await axios.get('/api/v1/all-books')
         return res.data
     }
 
     let { data, isLoading } = useQuery({
         queryKey: ['AllData'],
-        queryFn: getAllAvailable
+        queryFn: getAllBooks
     })
 
     if (isLoading) { return <Loading></Loading> }
@@ -24,6 +25,9 @@ const AllBooks = () => {
     return (
         <section className="cont">
             <h2><span className="text-crim">All</span> Books</h2>
+            <div className=" brr">
+                <FaFilter></FaFilter>
+            </div>
             <section className="grid grid-cols-2 gap-8">
                 {
                     data.map(obj => <Card

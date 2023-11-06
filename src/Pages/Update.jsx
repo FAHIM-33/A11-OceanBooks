@@ -113,13 +113,7 @@ const Update = () => {
                         <br />
                         <input defaultValue={data.rating} type="text" placeholder="4.5" name="rating" className="" />
                     </div>
-                    {/* <div className="p-4 lg:p-8">
-                        <label htmlFor="discription">Short discription:</label>
-                        <br />
-                        <textarea name="discription" placeholder="Write short discription" className="w-full h-32 bg-fadegray p-3 rounded-md"></textarea>
-                    </div> */}
-
-
+          
                 </div>
                 <input type="submit" value="Submit" className="bg-crim text-white btn py-3 block w-1/2 mx-auto text-lg font-medium my-4 " />
             </form>

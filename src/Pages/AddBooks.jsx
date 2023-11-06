@@ -51,8 +51,8 @@ const AddBooks = () => {
     }
 
     return (
-        <div className="pb-12">
-            <h2 className="text-4xl text-center mt-12 font-semibold text-high">Add new <span className="text-crim">Book</span></h2>
+        <div className="pb-12 bg-background">
+            <h2 className="text-4xl text-center pt-12 font-semibold text-high">Add new <span className="text-crim">Book</span></h2>
             <form onSubmit={handleAdd} className="border border-low lg:p-4 bg-background rounded-lg m-4 ">
                 <div className="grid grid-cols-1 md:grid-cols-2">
 

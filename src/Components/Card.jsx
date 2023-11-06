@@ -27,7 +27,7 @@ const Card = ({ data, children }) => {
                 <div className='flex-1'></div>
                 {/* Details Button */}
                 {children}
-                <p className='absolute top-0 right-0 rounded-bl-md bg-high text-white font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>
+                <p className='absolute top-0 right-0 rounded-bl-md bg-high text-background font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>
             </div>
 
         </div>

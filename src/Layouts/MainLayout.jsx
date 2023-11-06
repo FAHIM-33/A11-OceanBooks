@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 
 const MainLayout = () => {
     return (
-        <div className="">
+        <div className="text-high bg-background">
             <Navbar></Navbar>
             <Outlet></Outlet>
             

@@ -17,12 +17,11 @@ const Details = () => {
         return res.data
     }
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ['details'],
         queryFn: getSingleBook
     })
     if (isLoading) { return <Loading></Loading> }
-    console.log(data)
     const { img, name, authorName, category, rating, description, qty } = data
 
 
@@ -33,8 +32,7 @@ const Details = () => {
                     <img src={img} className='h-[90vh] block object-cover' alt="img of books" />
                 </div>
                 <div className='relative flex-1 flex flex-col justify-center p-4'>
-                    {/* <div className='flex-1'></div> */}
-                    <p className='mb-8 rounded-sm w-fit bg-high text-white font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>
+                    <p className='mb-8 rounded-sm w-fit bg-high text-background font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>
                     <p className='text-4xl font-semibold border-l-2 border-crim pl-1'>{name}</p>
                     <p className='mb-4 text-sm mt-2'>by <span className='font-medium text-2xl'> {authorName}</span></p>
                     <p className="font-medium">Quantity: {qty}</p>
@@ -61,12 +59,15 @@ const Details = () => {
 
                 </div>
             </div>
+
             <section className={`${open ? 'fixed' : 'hidden'} overflow-auto inset-0 bg-[#11111181]`} id='borrow-modal'>
                 <Modal
                     data={data}
                     setOpen={setOpen}
+                    refetch={refetch}
                 ></Modal>
             </section>
+
         </section>
     );
 };
