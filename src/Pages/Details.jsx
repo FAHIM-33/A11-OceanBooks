@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../Hooks/useAxios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BiCategoryAlt, BiSolidStar, BiStar } from 'react-icons/bi';
 import Rating from "react-rating";
 import Loading from "../Components/Loading";
@@ -56,6 +56,9 @@ const Details = () => {
                         className="btn bg-crim py-3 mt-8 text-xl block mx-auto text-white w-4/5"
                         onClick={() => setOpen(true)}
                     >Borrow</button>
+                    <Link to={`/read/${id}`}>
+                        <button className="btn bg-background py-3 mt-4 text-xl block mx-auto text-crim w-4/5">Read</button>
+                    </Link>
 
                 </div>
             </div>
