@@ -6,13 +6,13 @@ import toast from 'react-hot-toast';
 
 
 const Login = () => {
-    let { login, googleLogin, Toast } = useContext(AuthContext)
+    let { login, googleLogin } = useContext(AuthContext)
     let nav = useNavigate()
     const handleLogin = (e) => {
         e.preventDefault()
-        let toastID = toast.loading("Loggin in...")
         let email = e.target.email.value
         let password = e.target.password.value
+        let toastID = toast.loading("Loggin in...")
         login(email, password)
             .then(() => {
                 nav('/')
@@ -24,20 +24,17 @@ const Login = () => {
     }
     const handleGoogleLogin = (e) => {
         e.preventDefault()
+        let toastID = toast.loading("Logging in with Google")
         googleLogin()
             .then(() => {
                 nav('/')
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Logged in with Google'
-                })
+                toast.success("Logged in with Google", {id: toastID})
             })
-            .catch((error) => Toast.fire({
-                icon: 'error',
-                title: error.code
-            }))
-
+            .catch(() => {
+                toast.error("Failed to login with Google", {id: toastID})
+            })
     }
+
     return (
         <div className="">
             <form onSubmit={handleLogin} className="lg:w-2/5 md:4/5 m-4 md:mx-auto p-4 border border-low rounded-md">
