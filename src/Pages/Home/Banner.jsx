@@ -17,16 +17,8 @@ const Banner = () => {
             // console.log(swiper)
             window.swiper = swiper
         },
-        onSlideChange: () => console.log('slide change'),
+        // onSlideChange: () => console.log('slide change'),
     }
-
-    // setTimeout(() => {
-    //     setInterval(() => {
-    //         goNext()
-    //     }, 2000);
-    // }, 8000);
-
-
 
     function goNext() {
         if (window.swiper) {

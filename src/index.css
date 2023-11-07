@@ -78,6 +78,9 @@ input:focus {
     color: white;
 }
 
+.member{
+    background-image: url('/Sprinkle.svg');
+}
 
 nav a{
     border: 1px solid var(--color-crim); /*This doesn't work*/
@@ -96,7 +99,7 @@ nav a:hover:not(.login){
     object-fit: cover;
 }
 
-.btn{
+.btn:not(.input-btn){
     /* border: 1px solid black; */
     border-radius: 5px;
     transition: all 0.2s;

@@ -2,11 +2,12 @@ import axios from "axios";
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000',
-  });
+  // baseURL: 'http://localhost:5000',
+  baseURL: 'https://library-server-gamma.vercel.app',
+});
 
 const useAxios = () => {
-    return instance
+  return instance
 };
 
 export default useAxios;

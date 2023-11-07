@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
         let unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user?.email === 'admin@gmail.com') {
                 user.role = 'admin'
-                console.log(user.role)
+                // console.log(user.role)
             }
             setUser(user)
             setLoading(false)

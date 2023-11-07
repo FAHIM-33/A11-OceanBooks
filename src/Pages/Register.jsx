@@ -61,7 +61,7 @@ const Register = () => {
         <div className="pb-16">
             <form onSubmit={handleRegister} className="lg:w-2/5 md:4/5 m-4 md:mx-auto p-4 border border-low rounded-lg">
                 <div className=''>
-                    <span className="block whitespace-nowrap text-3xl md:text-5xl text-center" >-Register Now-</span>
+                    <span className="block whitespace-nowrap text-3xl md:text-5xl text-center" >Register Now</span>
                 </div>
                 <div className='md:mt-12 mt-8'>
                     <label htmlFor="name"
@@ -97,13 +97,13 @@ const Register = () => {
                     <input type="password" name="password" id="password" placeholder="Password"
                         className="" />
                 </div>
-                <button className='btn p-2 bg-low w-full rounded-md mt-8 text-xl md:text-2xl tracking-widest text-white '>Register</button>
+                <button className='btn p-2 bg-low w-full rounded-md mt-8 text-xl md:text-2xl tracking-widest text-background '>Register</button>
                 <div className='flex items-center gap-2'>
                     <div className='w-full h-[1px] bg-gray-400'></div>
                     <div className='text-lg my-2 text-low'>or</div>
                     <div className='w-full h-[1px] bg-gray-400'></div>
                 </div>
-                <button onClick={handleGoogleLogin} className='btn p-2 bg-low text-xl w-full rounded-md text-white flex  justify-center items-center'><span className='text-2xl md:text-3xl'><FcGoogle></FcGoogle></span>oogle</button>
+                <button onClick={handleGoogleLogin} className='btn p-2 bg-low text-xl w-full rounded-md text-background flex  justify-center items-center'><span className='text-2xl md:text-3xl'><FcGoogle></FcGoogle></span>oogle</button>
             </form>
             <p className='text-center'>Already have an account? <Link to="/login" className='text-blue-600'>Login Here.</Link></p>
         </div>
