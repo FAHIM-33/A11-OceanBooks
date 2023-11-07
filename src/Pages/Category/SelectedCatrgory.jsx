@@ -14,7 +14,7 @@ const SelectedCatrgory = () => {
         return res.data
     }
 
-    const { data, isLoading, } = useQuery({
+    const { data, isLoading,  } = useQuery({
         queryKey: ['selectedCatagory'],
         queryFn: getBooks,
     })

@@ -1,41 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useAxios from "../Hooks/useAxios";
 import toast from "react-hot-toast";
-import { useQuery } from "@tanstack/react-query";
-import Loading from "../Components/Loading";
+import { useQueryClient } from "@tanstack/react-query";
+
 
 const Update = () => {
     const { id } = useParams()
     const axios = useAxios()
     let nav = useNavigate()
+    const queryClient = useQueryClient()
 
-    const getBook = async () => {
-        let res = await axios.get(`/api/v1/Abook/${id}`)
-        return res.data
-    }
+    const query = queryClient.getQueryData(['AllData'])
 
-    let { data, isLoading, refetch } = useQuery({
-        queryKey: ['updating'],
-        queryFn: getBook
-    })
+    const data = query.find(obj => obj._id === id)
 
-    if (isLoading) { return <Loading></Loading> }
-
-
+    const { name, img, authorName, qty, rating, category } = data
+    console.log(data)
 
     function handleUpdate(e) {
         e.preventDefault()
         let form = e.target;
-        let name = form.name.value;
         let select = document.getElementById("select-category")
-        let category = select.value
-        let authorName = form.authorName.value
-        let img = form.url.value
-        let rating = form.rating.value
-        let qty = form.qty.value
+        let newname = form.name.value;
+        let newcategory = select.value
+        let newauthorName = form.authorName.value
+        let newimg = form.url.value
+        let newrating = form.rating.value
+        let newqty = form.qty.value
 
-        qty *= 1
-        rating *= 1
+        newqty *= 1
+        newrating *= 1
 
 
         if (typeof (qty) !== 'number' || typeof (rating) !== 'number') {
@@ -45,20 +39,20 @@ const Update = () => {
         let toastID = toast.loading("Updating book...")
 
         const newBook = {
-            name,
-            category,
-            authorName,
-            img,
-            rating,
-            qty,
+            name: newname,
+            category: newcategory,
+            authorName: newauthorName,
+            img: newimg,
+            rating: newrating,
+            qty: newqty,
         }
 
         axios.put(`/app/v1/update/${id}`, newBook)
             .then(res => {
                 res.data?.modifiedCount &&
-                refetch()
+                    queryClient.refetchQueries(['AllData'])
+                toast.success("Updated Successfully", { id: toastID })
                 nav(-1)
-                    toast.success("Updated Successfully", { id: toastID })
             })
             .catch(err => {
                 console.log(err)
@@ -76,30 +70,30 @@ const Update = () => {
                     <div className="p-4 lg:p-8">
                         <label htmlFor="name">Book name:</label>
                         <br />
-                        <input defaultValue={data.name} type="text" placeholder="Book Name" name="name" className="" />
+                        <input defaultValue={name} type="text" placeholder="Book Name" name="name" className="" />
                     </div>
 
                     <div className="p-4 lg:p-8">
                         <label htmlFor="name">Author Name:</label>
                         <br />
-                        <input defaultValue={data.authorName} type="text" placeholder="Author Name" name="authorName" className="" />
+                        <input defaultValue={authorName} type="text" placeholder="Author Name" name="authorName" className="" />
                     </div>
 
                     <div className="p-4 lg:p-8">
                         <label htmlFor="url">Image URL:</label>
                         <br />
-                        <input defaultValue={data.img} type="text" placeholder="URL" name="url" className="" />
+                        <input defaultValue={img} type="text" placeholder="URL" name="url" className="" />
                     </div>
                     <div className="p-4 lg:p-8">
                         <label htmlFor="qty">Quantity:</label>
                         <br />
-                        <input defaultValue={data.qty} type="text" placeholder="00" name="qty" className="" />
+                        <input defaultValue={qty} type="text" placeholder="00" name="qty" className="" />
                     </div>
 
                     <div className="p-4 lg:p-8">
                         <label htmlFor="select-category">Category/Genre:</label>
                         <br />
-                        <select defaultValue={data.category} className="p-4 w-full bg-fadegray rounded-md" id="select-category">
+                        <select defaultValue={category} className="p-4 w-full bg-fadegray rounded-md" id="select-category">
                             <option value="History">History</option>
                             <option value="Fiction">Fiction</option>
                             <option value="Sci-Fi">Sci-Fi</option>
@@ -111,9 +105,9 @@ const Update = () => {
                     <div className="p-4 lg:p-8">
                         <label htmlFor="rating">Rating:</label>
                         <br />
-                        <input defaultValue={data.rating} type="text" placeholder="4.5" name="rating" className="" />
+                        <input defaultValue={rating} type="text" placeholder="4.5" name="rating" className="" />
                     </div>
-          
+
                 </div>
                 <input type="submit" value="Submit" className="bg-crim text-white btn py-3 block w-1/2 mx-auto text-lg font-medium my-4 " />
             </form>

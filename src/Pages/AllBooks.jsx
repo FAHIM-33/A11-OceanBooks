@@ -26,7 +26,7 @@ const AllBooks = () => {
 
 
 
-    let { data, isLoading } = useQuery({
+    let { data, isLoading, refetch } = useQuery({
         queryKey: ['AllData'],
         queryFn: getAllBooks
     })
@@ -50,6 +50,7 @@ const AllBooks = () => {
                     data.map(obj => <Card
                         key={obj._id}
                         data={obj}
+                        refetch={refetch}
                     >
                         <Link to={`/update/${obj._id}`}>
                             <button className='btn mx-auto block bg-crim w-full py-2 text-white text-xl'>Update</button>
