@@ -5,35 +5,23 @@ import useAxios from '../../Hooks/useAxios';
 import Loading from '../../Components/Loading';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { useQuery } from '@tanstack/react-query';
 
 
-const BorrowCard = ({ borrowData, refetch:fetchagain }) => {
+const BorrowCard = ({ borrowData, refetch }) => {
     const { _id, productID, returnDate, borrowDate } = borrowData
     const axios = useAxios()
-    // const [data, setData] = useState()
+    const [data, setData] = useState()
 
 
-    // useEffect(() => {
-    //     axios.get(`/api/v1/Abook/${productID}`)
-    //         .then(res => {
-    //             setData(res.data)
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // }, [axios, productID])
-
-    const loadAbook = async () => {
-        let res = await axios.get(`/api/v1/Abook/${productID}`)
-        return res.data
-    }
-
-    const { data, isLoading , refetch} = useQuery({
-        queryKey: ['Abook'],
-        queryFn: loadAbook
-    })
-
+    useEffect(() => {
+        axios.get(`/api/v1/Abook/${productID}`)
+            .then(res => {
+                setData(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [axios, productID])
 
 
     // 
@@ -49,7 +37,6 @@ const BorrowCard = ({ borrowData, refetch:fetchagain }) => {
                             console.log("Delete entered..")
                             if (res.data.deletedCount > 0) {
                                 toast.success("Returned Book Successfully", { id: toastID })
-                                fetchagain()
                                 refetch()
                             }
                         })

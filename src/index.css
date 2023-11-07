@@ -14,7 +14,6 @@
         --color-background: 255 227 194;
         /* ... */
     }
-
     :root[data-theme="dark"] {
         --color-low: 51 51 51;
         --color-mid: 202 202 202;
@@ -25,7 +24,8 @@
 }
 
 body{
-    background-color: rgb(255, 227, 194);
+    background-color: var(--color-background);
+    /* background-color: rgb(255, 227, 194); */
     font-family: 'Poppins', sans-serif;
     max-width: 2400px;
     margin: 0 auto;
