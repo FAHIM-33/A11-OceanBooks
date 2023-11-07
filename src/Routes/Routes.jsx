@@ -12,12 +12,14 @@ import PrivateRoute from "../Providers/PrivateRoute";
 import Read from "../Pages/Read";
 import BorrowedBooks from "../Pages/BorrowedBookd/BorrowedBooks";
 import AdminRoute from "../Providers/AdminRoute";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                element: <Update></Update>
+                element: <AdminRoute><Update></Update></AdminRoute>
             },
             {
                 path: '/allBooks',
@@ -46,7 +48,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addBooks',
-                element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>
+                element: <AdminRoute><AddBooks></AddBooks></AdminRoute>
             },
             {
                 path: '/borrowed',

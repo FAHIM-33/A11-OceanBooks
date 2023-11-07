@@ -5,37 +5,52 @@ import useAxios from '../../Hooks/useAxios';
 import Loading from '../../Components/Loading';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
 
 
-const BorrowCard = ({ borrowData, refetch }) => {
+const BorrowCard = ({ borrowData, refetch:fetchagain }) => {
     const { _id, productID, returnDate, borrowDate } = borrowData
     const axios = useAxios()
-    const [data, setData] = useState()
+    // const [data, setData] = useState()
 
-    useEffect(() => {
-        axios.get(`/api/v1/Abook/${productID}`)
-            .then(res => {
-                setData(res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [axios, productID])
+
+    // useEffect(() => {
+    //     axios.get(`/api/v1/Abook/${productID}`)
+    //         .then(res => {
+    //             setData(res.data)
+    //         })
+    //         .catch((err) => {
+    //             console.log(err)
+    //         })
+    // }, [axios, productID])
+
+    const loadAbook = async () => {
+        let res = await axios.get(`/api/v1/Abook/${productID}`)
+        return res.data
+    }
+
+    const { data, isLoading , refetch} = useQuery({
+        queryKey: ['Abook'],
+        queryFn: loadAbook
+    })
+
+
 
     // 
     function decreaseQTY(borrowedBookID, quantity) {
         let toastID = toast.loading("Returning Book...")
-        axios.put('/api/v1/update-quantity/?operation=increase', { qty: quantity, productID: borrowedBookID })
+        axios.patch('/api/v1/update-quantity/?operation=increase', { qty: quantity, productID: borrowedBookID })
             .then(res => {
                 console.log("Entered Patch of increase")
                 console.log(res.data)
-                refetch()
                 if (res.data.modifiedCount > 0) {
                     axios.delete(`/api/v1/return-borrowed/${_id}`)
                         .then(res => {
                             console.log("Delete entered..")
                             if (res.data.deletedCount > 0) {
                                 toast.success("Returned Book Successfully", { id: toastID })
+                                fetchagain()
+                                refetch()
                             }
                         })
                         .catch(() => {

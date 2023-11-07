@@ -22,7 +22,7 @@ const BorrowedBooks = () => {
 
     if (isLoading) { return <Loading></Loading> }
 
-    if (data.length === 0) { return <section className="cont"><h2>No Book was borrowed</h2></section> }
+    if (data.length === 0) { return <section className="cont text-red-600"><h2>No Books are borrowed</h2></section> }
 
     return (
         <section className="cont">
