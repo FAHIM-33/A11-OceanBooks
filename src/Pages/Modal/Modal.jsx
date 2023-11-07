@@ -79,7 +79,7 @@ const Modal = ({ data, setOpen, refetch }) => {
 
     return (
 
-        <div className="bg-background lg:p-4 mt-12 rounded-lg m-4 w-1/2 mx-auto relative">
+        <div className="bg-background mt-16 md:mt-12 border border-gray-400 rounded-lg m-4 w-11/12  md:w-1/2 mx-auto relative">
             <h2 className="text-4xl text-center font-semibold text-high">Borrow <span className="text-crim">Book</span></h2>
             <form onSubmit={handleBorrow} className="  ">
                 <div className="grid grid-cols-1">
@@ -103,7 +103,7 @@ const Modal = ({ data, setOpen, refetch }) => {
                     </div>
 
                 </div>
-                <input type="submit" value="Submit" className="bg-crim text-white btn py-3 block w-1/2 mx-auto text-lg font-medium my-4 " />
+                <input type="submit" value="Submit" className="bg-crim text-white btn py-1 md:py-3 block w-1/2 mx-auto text-lg font-medium my-4 " />
             </form>
             <span onClick={() => setOpen(false)}>
                 <MdCancel className="text-2xl hover:text-red-700 absolute top-2 right-2"></MdCancel>
