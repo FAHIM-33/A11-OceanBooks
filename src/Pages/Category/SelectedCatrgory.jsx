@@ -19,24 +19,22 @@ const SelectedCatrgory = () => {
         queryFn: getBooks,
     })
 
-    // console.log(data, isLoading)
 
     return (
         <section className="cont">
             <h2><span className="text-crim">{category}</span> Books</h2>
             {
                 isLoading ?
-                    // <div className="loader"></div>
                     <Loading></Loading>
                     :
-                    <section className="grid grid-cols-2 gap-8">
+                    <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {
                             data?.map((obj, i) => <Card
                                 key={i}
                                 data={obj}
                             >
                                 <Link to={`/details/${obj._id}`}>
-                                    <button className='btn mx-auto block bg-crim w-full py-2 text-white text-xl'>Details</button>
+                                    <button className='btn mx-auto block bg-crim w-full py-1 md:py-2 text-white  md:text-xl'>Details</button>
                                 </Link>
                             </Card>)
                         }

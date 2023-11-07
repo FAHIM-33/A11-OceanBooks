@@ -37,15 +37,15 @@ const AllBooks = () => {
         <section className="cont">
             <h2><span className="text-crim">All</span> Books</h2>
 
-            <div className="flex justify-end mb-8 text-xl">
+            <div className="flex justify-end mb-4 md:mb-8 -mt-4 md:mt-0 text-base md:text-xl">
                 <button
                     onClick={() => handleFilter(data)}
-                    className="border border-high p-2 rounded-bl-xl hover:scale-105 duration-150 flex active:scale-95 items-center">
-                    <FaFilter className="text-3xl text-high"></FaFilter><span>Available only</span>
+                    className="border border-high p-1 md:p-2 rounded-bl-xl hover:scale-105 duration-150 flex active:scale-95 items-center">
+                    <FaFilter className="text-xl md:text-3xl text-high"></FaFilter><span>Available only</span>
                 </button>
             </div>
             {isAvailableOnly && <p className="text-center pb-4 text-3xl text-red-600">Shoing Available only</p>}
-            <section className="grid grid-cols-2 gap-8">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {
                     data.map(obj => <Card
                         key={obj._id}
@@ -53,7 +53,7 @@ const AllBooks = () => {
                         refetch={refetch}
                     >
                         <Link to={`/update/${obj._id}`}>
-                            <button className='btn mx-auto block bg-crim w-full py-2 text-white text-xl'>Update</button>
+                            <button className='btn mx-auto block bg-crim w-full py-1 md:py-2 text-white  md:text-xl'>Update</button>
                         </Link>
                     </Card>)
                 }

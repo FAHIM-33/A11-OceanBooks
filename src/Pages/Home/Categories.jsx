@@ -24,16 +24,16 @@ const Categories = () => {
     return (
         <section className="cont">
             <h2 className="mb-8">Categories</h2>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 px-4 md:grid-cols-4 gap-4">
                 {
                     catagories.map((obj, i) => <div
                         key={i}
                         className=" bg-fadegray rounded-md overflow-hidden"
                     >
                         <img src={obj?.img} className="h-48 rounded-md object-cover w-full" alt="" />
-                        <p className="text-xl my-2 font-bold text-center">{obj.name}</p>
+                        <p className="text-lg md:text-xl my-2 font-bold text-center">{obj.name}</p>
                         <Link to={`/category/${obj.name}`}>
-                            <button className="btn mb-2 bg-crim text-white w-4/5 mx-auto block py-2">Select</button>
+                            <button className="btn mb-2 bg-crim text-white w-4/5 mx-auto block py-1 md:py-2">Select</button>
                         </Link>
                     </div>)
                 }

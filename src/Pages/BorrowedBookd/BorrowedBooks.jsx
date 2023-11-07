@@ -27,7 +27,7 @@ const BorrowedBooks = () => {
     return (
         <section className="cont">
             <h2><span className="text-crim">Borrowed</span> Books</h2>
-            <section className="grid grid-cols-2 gap-8">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {
                     data?.map(obj => <BorrowCard
                         key={obj._id}
