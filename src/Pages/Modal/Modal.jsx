@@ -53,6 +53,9 @@ const Modal = ({ data, setOpen, refetch }) => {
 
         axios.post('/api/v1/borrow-book', body)
             .then(res => {
+                console.log(res.data)
+
+                if (res?.data?.exists) { toast.error("Already Borrowed", { id: toastID }) }
                 if (res?.data?.acknowledged) {
                     nav(-1)
                     decreaseQTY(data._id, data.qty)
