@@ -45,10 +45,15 @@ const Banner = () => {
                 // install Swiper modules
                 {...swiperRules}
             >
-                <SwiperSlide><img src='https://i.ibb.co/Rvv7j3Y/banner1.jpg'></img></SwiperSlide>
+                {/* <SwiperSlide><img src='https://i.ibb.co/Rvv7j3Y/banner1.jpg'></img></SwiperSlide>
                 <SwiperSlide><img src='https://i.ibb.co/qBBCvzC/banner2.jpg'></img></SwiperSlide>
                 <SwiperSlide><img src='https://i.ibb.co/phD3vcF/banner3.jpg'></img></SwiperSlide>
-                <SwiperSlide><img src='https://i.ibb.co/DYSwZwh/banner4.jpg'></img></SwiperSlide>
+                <SwiperSlide><img src='https://i.ibb.co/DYSwZwh/banner4.jpg'></img></SwiperSlide> */}
+
+                <SwiperSlide><img src='v7j3Y/banner1.jpg' alt='borken banner'></img></SwiperSlide>
+                <SwiperSlide><img src='BBCvzC/banner2.jpg' alt='borken banner'></img></SwiperSlide>
+                <SwiperSlide><img src='D3vcF/banner3.jpg' alt='borken banner'></img></SwiperSlide>
+                <SwiperSlide><img src='jpg' alt='borken banner'></img></SwiperSlide>
 
             </Swiper>
 

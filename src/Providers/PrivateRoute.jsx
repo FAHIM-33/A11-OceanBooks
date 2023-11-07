@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
     if (loading) { return <Loading></Loading> }
     if (user?.email) { return children }
 
-    return <Navigate to="/login"></Navigate>
+    return <Navigate to="/login"></Navigate> 
 };
 
 PrivateRoute.propTypes = {

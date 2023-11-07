@@ -6,10 +6,10 @@ import pt from 'prop-types'
 
 const AdminRoute = ({ children }) => {
 
-    const { user, isloading } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
 
-    if (isloading) { return <Loading></Loading> }
-    if (!user?.email) { return <Navigate to="/login"></Navigate> }
+    if (loading) { return <Loading></Loading> }
+    if (!user.email) { return <Navigate to="/login"></Navigate> }
     if (user.role === 'admin') { return children }
 
     return <div>Not Admin</div>

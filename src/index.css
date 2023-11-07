@@ -15,7 +15,7 @@
         /* ... */
     }
     :root[data-theme="dark"] {
-        --color-low: 51 51 51;
+        --color-low: 164 164 164;
         --color-mid: 202 202 202;
         --color-high: 238 238 238;
         --color-crim: 219 20 60;
@@ -23,12 +23,22 @@
     }
 }
 
+/* 
+.test{
+    color: rgba(175, 175, 175, 0.644)
+} */
+
+
 body{
     background-color: var(--color-background);
     /* background-color: rgb(255, 227, 194); */
     font-family: 'Poppins', sans-serif;
     max-width: 2400px;
     margin: 0 auto;
+}
+
+main{
+    min-height: 100vh;
 }
 
 .cont{

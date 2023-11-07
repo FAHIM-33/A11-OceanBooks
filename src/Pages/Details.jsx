@@ -29,7 +29,8 @@ const Details = () => {
         <section className="max-w-7xl mx-auto my-8">
             <div className='bg-fadegray flex rounded-md overflow-hidden'>
                 <div className=''>
-                    <img src={img} className='h-[90vh] block object-cover' alt="img of books" />
+                    {/* <img src={img} className='h-[90vh] block object-cover' alt="img of books" /> */}
+                    <img src='' className='h-[90vh] block object-cover' alt="img of books" />
                 </div>
                 <div className='relative flex-1 flex flex-col justify-center p-4'>
                     <p className='mb-8 rounded-sm w-fit bg-high text-background font-bold px-4 py-1'><BiCategoryAlt className='inline-flex mr-1 text-crim text-xl'></BiCategoryAlt>{category}</p>

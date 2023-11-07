@@ -34,7 +34,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="flex bg-mid py-1 items-center">
+            <nav className="flex bg-mid py-1 items-center px-1">
                 <div className="flex flex-1 items-center gap-2 px-2">
                     <img src="/logo.png" className="w-12 " alt="broken logo" />
                     <p className="text-xl font-semibold text-crim">Ocean Books</p>

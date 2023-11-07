@@ -7,9 +7,10 @@ import Footer from "../Pages/Footer";
 const MainLayout = () => {
     return (
         <div className="text-high bg-background">
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <header><Navbar></Navbar></header>
+            <main><Outlet></Outlet></main>
+            <footer><Footer></Footer></footer>
+
         </div>
     );
 };

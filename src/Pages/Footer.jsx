@@ -3,7 +3,7 @@ import { BsGithub, BsFacebook, BsLinkedin, BsInstagram, BsTwitter } from "react-
 
 const Footer = () => {
     return (
-        <footer className="bg-low pt-5 pb-4 text-white">
+        <footer className="bg-[#111] pt-5 pb-4 text-white">
             <div className="text-center flex justify-center items-center gap-1">
                 <figure className="">
                     <img src="/logo.png" className="mx-auto -m-2 w-6" alt="" /> 
