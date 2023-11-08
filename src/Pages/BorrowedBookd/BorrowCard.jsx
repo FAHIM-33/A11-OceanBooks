@@ -60,8 +60,7 @@ const BorrowCard = ({ borrowData, refetch }) => {
         <div>
             <div className='hidden bg-fadegray md:flex rounded-bl-lg overflow-hidden'>
                 <div className='w-6/12'>
-                    {/* <img src={img} className='h-[500px] w-full block object-cover' alt="img of books" /> */}
-                    <img src='' className='h-[500px] w-full block object-cover' alt="img of books" />
+                    <img src={img} className='h-[500px] w-full block object-cover' alt="img of books" />
                 </div>
 
                 <div className='relative flex-1 flex flex-col justify-center p-4'>

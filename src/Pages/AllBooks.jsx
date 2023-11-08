@@ -44,7 +44,7 @@ const AllBooks = () => {
                     <FaFilter className="text-xl md:text-3xl text-high"></FaFilter><span>Available only</span>
                 </button>
             </div>
-            {isAvailableOnly && <p className="text-center pb-4 text-3xl text-red-600">Shoing Available only</p>}
+            {isAvailableOnly && <p className="text-center pb-4 text-3xl text-red-600">Shoing Available: {data.length} books</p>}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {
                     data.map(obj => <Card

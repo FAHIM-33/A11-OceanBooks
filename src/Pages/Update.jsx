@@ -62,7 +62,7 @@ const Update = () => {
     }
 
     return (
-        <div className="pb-12">
+        <div className="pb-12 cont">
             <h2 className="text-4xl text-center mt-12 font-semibold text-high">Update <span className="text-crim">Book()</span></h2>
             <form onSubmit={handleUpdate} className="border border-low lg:p-4 bg-background rounded-lg m-4 ">
                 <div className="grid grid-cols-1 md:grid-cols-2">

@@ -5,19 +5,19 @@ const Categories = () => {
     const catagories = [
         {
             name: 'History',
-            // img: 'https://i.ibb.co/zRb1Bhf/history.jpg'
+            img: 'https://i.ibb.co/zRb1Bhf/history.jpg'
         },
         {
             name: 'Fiction',
-            // img: 'https://i.ibb.co/bWTHrRG/fiction.jpg'
+            img: 'https://i.ibb.co/bWTHrRG/fiction.jpg'
         },
         {
             name: 'Mystery',
-            // img: 'https://i.ibb.co/1J9hPmk/mystery.jpg'
+            img: 'https://i.ibb.co/1J9hPmk/mystery.jpg'
         },
         {
             name: 'Sci-Fi',
-            // img: 'https://i.ibb.co/bNCqVBZ/mystery.webp'
+            img: 'https://i.ibb.co/bNCqVBZ/mystery.webp'
         },
     ]
 

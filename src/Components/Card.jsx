@@ -8,10 +8,9 @@ const Card = ({ data, children }) => {
 
     const { img, name, authorName, category, rating, qty } = data
     return (
-        <div className='bg-fadegray flex rounded-bl-lg overflow-hidden mx-1 md:mx-0'>
-            <div className='w-4/12'>
-                {/* <img src={img} className='h-[500px] w-full block object-cover' alt="img of books" /> */}
-                <img src='' className='h-full md:h-[500px] w-full block object-cover' alt="img of books" />
+        <div className='bg-fadegray flex rounded-bl-2xl overflow-hidden mx-1 md:mx-0'>
+            <div className='w-4/12 md:w-1/2'>
+                <img src={img} className='h-full md:h-[500px] w-full block object-cover' alt="img of books" />
             </div>
 
             <div className='relative flex-1 flex flex-col justify-center pt-5 md:pt-2 p-2 md:p-4'>

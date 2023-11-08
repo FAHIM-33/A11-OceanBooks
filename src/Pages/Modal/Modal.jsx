@@ -6,10 +6,12 @@ import { DateTime } from "luxon";
 import pt from 'prop-types'
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 
 
-const Modal = ({ data, setOpen, refetch }) => {
+const Modal = ({ data, setOpen }) => {
     const axios = useAxios()
+    const queryClient = useQueryClient()
     const { user } = useContext(AuthContext)
     const nav = useNavigate()
 
@@ -24,8 +26,8 @@ const Modal = ({ data, setOpen, refetch }) => {
     function decreaseQTY(id, quantity) {
         axios.patch('/api/v1/update-quantity/?operation=decrease', { qty: quantity, productID: id })
             .then(() => {
-                // console.log(res.data)
-                refetch()
+                // refetch()
+                queryClient.invalidateQueries('selectedCatagory')
             })
             .catch(() => {
                 console.log('Failed Patch')
@@ -53,8 +55,6 @@ const Modal = ({ data, setOpen, refetch }) => {
 
         axios.post('/api/v1/borrow-book', body)
             .then(res => {
-                console.log(res.data)
-
                 if (res?.data?.exists) { toast.error("Already Borrowed", { id: toastID }) }
                 if (res?.data?.acknowledged) {
                     nav(-1)

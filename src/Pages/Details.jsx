@@ -1,27 +1,24 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxios from "../Hooks/useAxios";
+import { useQueryClient } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { BiCategoryAlt, BiSolidStar, BiStar } from 'react-icons/bi';
 import Rating from "react-rating";
-import Loading from "../Components/Loading";
 import Modal from "./Modal/Modal";
 import { useState } from "react";
+import Loading from "../Components/Loading";
 
 const Details = () => {
     let { id } = useParams()
-    const axios = useAxios()
+    // const axios = useAxios()
     const [open, setOpen] = useState(false)
+    const queryClient = useQueryClient()
 
-    const getSingleBook = async () => {
-        let res = await axios.get(`/api/v1/Abook/${id}`)
-        return res.data
-    }
+    const dataArr = queryClient.getQueryData(['selectedCatagory'])
 
-    const { data, isLoading, refetch } = useQuery({
-        queryKey: ['details'],
-        queryFn: getSingleBook
-    })
-    if (isLoading) { return <Loading></Loading> }
+    const data = dataArr.find(obj => obj._id === id)
+
+if (!data) { return <Loading></Loading> }
+
+
     const { img, name, authorName, category, rating, description, qty } = data
 
 
@@ -67,7 +64,7 @@ const Details = () => {
                 <Modal
                     data={data}
                     setOpen={setOpen}
-                    refetch={refetch}
+                    // refetch={refetch}
                 ></Modal>
             </section>
 

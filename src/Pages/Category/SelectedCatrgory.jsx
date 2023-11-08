@@ -10,7 +10,6 @@ const SelectedCatrgory = () => {
 
     const getBooks = async () => {
         let res = await axios.get(`/api/v1/all-books/?category=${category}`)
-        // let res = await axios.get('/img.json')
         return res.data
     }
 
