@@ -4,7 +4,8 @@ import Loading from "../Components/Loading";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 import { FaFilter } from 'react-icons/fa';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 
@@ -12,9 +13,10 @@ const AllBooks = () => {
     const axios = useAxios()
     const queryClient = useQueryClient()
     const [isAvailableOnly, setIsAvailableOnly] = useState(false)
+    const { user } = useContext(AuthContext)
 
     async function getAllBooks() {
-        let res = await axios.get('/api/v1/all-books')
+        let res = await axios.get(`/api/v1/all-books-verified/?email=${user.email}`)
         return res.data
     }
 
@@ -47,7 +49,7 @@ const AllBooks = () => {
             {isAvailableOnly && <p className="text-center pb-4 text-3xl text-red-600">Shoing Available: {data.length} books</p>}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {
-                    data.map(obj => <Card
+                    data?.map(obj => <Card
                         key={obj._id}
                         data={obj}
                         refetch={refetch}

@@ -1,10 +1,12 @@
 
+import { useContext } from "react";
 import useAxios from "../Hooks/useAxios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const AddBooks = () => {
     const axios = useAxios()
-
+    const { user } = useContext(AuthContext)
 
     function handleAdd(e) {
         e.preventDefault()
@@ -18,10 +20,10 @@ const AddBooks = () => {
         let description = form.description.value
         let qty = form.qty.value
 
-        qty*=1
-        rating*=1
+        qty *= 1
+        rating *= 1
 
-        if(typeof(qty) !== 'number' || typeof(rating) !== 'number' ){
+        if (typeof (qty) !== 'number' || typeof (rating) !== 'number') {
             return toast.error("Insert number")
         }
 
@@ -36,16 +38,16 @@ const AddBooks = () => {
             description,
             qty,
         }
-        console.log(book)
 
-        axios.post('/api/v1/addBook', book)
+        console.log(user.email)
+        axios.post(`/api/v1/addBook/?email=${user.email}`, book)
             .then(res => {
                 console.log(res.data)
-                toast.success("Added succesfully",{id: toastID})
+                toast.success("Added succesfully", { id: toastID })
             })
             .catch(err => {
                 console.log(err)
-                toast.error("Failed to add book", {id: toastID})
+                toast.error("Failed to add book", { id: toastID })
             })
 
     }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import ReactPDF from '@react-pdf/renderer';
+import pt from 'prop-types'
+import { Page, Text, Document, StyleSheet } from '@react-pdf/renderer';
+
 
 const styles = StyleSheet.create({
     body: {
@@ -34,4 +34,7 @@ const PDF = ({ data }) => {
         </Document>
     );
 };
+PDF.propTypes = {
+    data:pt.object
+}
 export default PDF;

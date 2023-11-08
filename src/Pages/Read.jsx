@@ -19,6 +19,7 @@ const Read = () => {
         if (download) { toast('Already downloaded') }
     }
 
+
     useEffect(() => {
         axios.get(`/api/v1/Abook/${id}`)
             .then(res => {
@@ -45,9 +46,10 @@ const Read = () => {
             <button
                 onClick={handleDownload}
                 className='btn flex items-center justify-center gap-2 py-3 w-1/2 mx-auto bg-crim text-white text-xl mt-8'><FiDownload></FiDownload> Download PDF</button>
-
         </div>
     );
+
 };
 
 export default Read;
+

@@ -13,6 +13,7 @@ import Read from "../Pages/Read";
 import BorrowedBooks from "../Pages/BorrowedBookd/BorrowedBooks";
 import AdminRoute from "../Providers/AdminRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import PDF from "../Pages/PDF/PDF";
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/pdf',
+                element: <PDF></PDF>
             },
         ]
 

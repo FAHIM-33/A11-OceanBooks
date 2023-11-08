@@ -2,13 +2,16 @@ import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import pt from 'prop-types'
 import auth from "../Config/firebase.config";
+import useAxios from "../Hooks/useAxios";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
     let googleProvider = new GoogleAuthProvider();
-    let [user, setUser] = useState({})
+    const [user, setUser] = useState({})
     let [loading, setLoading] = useState(true)
+    const axios = useAxios()
 
 
     const createUser = (email, password) => {
@@ -23,6 +26,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true)
+        axios.post('/api/v1/logout', { email: user.email })
         return signOut(auth)
     }
 
@@ -41,15 +45,25 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         let unSubscribe = onAuthStateChanged(auth, (user) => {
-            if (user?.email === 'admin@gmail.com') {
-                user.role = 'admin'
-                // console.log(user.role)
+            console.log("state changed!!!")
+            if (user) {
+                const loggedInUser = { email: user.email }
+                if (user?.email === 'admin@gmail.com') {
+                    user.role = 'admin'
+                    toast.success("Wellcome Admin!")
+                }
+                axios.post('/api/v1/jwt', loggedInUser)
+                    .then(() => { })
+                    .catch(() => {
+                        toast("Token Generation failed!")
+                    })
             }
+
             setUser(user)
             setLoading(false)
         })
         return () => unSubscribe()
-    }, [])
+    }, [axios])
 
 
     const data = {
