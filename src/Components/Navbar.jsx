@@ -30,10 +30,13 @@ const Navbar = () => {
 
     const links = <>
         <NavLink to="/"><li>Home</li></NavLink>
-        <NavLink to="/addBooks"><li>Add Books</li></NavLink>
         {
             user?.role === 'admin' ?
-                <NavLink to="/allBooks"><li>All Books</li></NavLink>
+                <>
+                    <NavLink to="/addBooks"><li>Add Books</li></NavLink>
+
+                    <NavLink to="/allBooks"><li>All Books</li></NavLink>
+                </>
                 :
                 ''
         }
@@ -88,7 +91,7 @@ const Navbar = () => {
                     user?.email ?
                         <div className="flex items-center gap-2">
                             {loading || <img className="w-8 border block rounded-full" src={user?.photoURL} alt="" />}
-                            <div id="sidebar"  className='relative'>
+                            <div id="sidebar" className='relative'>
 
                                 <CiMenuFries onClick={handleMobileSidebar} className="text-background text-2xl"></CiMenuFries>
 

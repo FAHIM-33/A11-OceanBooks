@@ -43,7 +43,6 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allBooks',
-                // element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
                 element: <AdminRoute><AllBooks></AllBooks></AdminRoute>
             },
             {

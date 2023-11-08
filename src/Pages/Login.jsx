@@ -19,7 +19,7 @@ const Login = () => {
                 toast.success("Login Successful", { id: toastID })
             })
             .catch((error) => {
-                toast.error(`${error.code}`)
+                toast.error(`${error.code}`, { id: toastID })
             })
     }
     const handleGoogleLogin = (e) => {

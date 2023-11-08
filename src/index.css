@@ -168,4 +168,7 @@ button:disabled {
     input{
         padding: 0.5rem;
     }
+    .banner img {
+        height: 400px;
+    }
 }
