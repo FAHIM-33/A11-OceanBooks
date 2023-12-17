@@ -11,12 +11,15 @@ const BorrowCard = ({ borrowData, refetch }) => {
     const { _id, productID, returnDate, borrowDate } = borrowData
     const axios = useAxios()
     const [data, setData] = useState()
+    // adding loading state in github
+    const [isDataLoading, setIsDataLoading] = useState(true)
 
 
     useEffect(() => {
         axios.get(`/api/v1/Abook/${productID}`)
             .then(res => {
                 setData(res.data)
+                setIsDataLoading(false)
             })
             .catch((err) => {
                 console.log(err)
@@ -52,8 +55,10 @@ const BorrowCard = ({ borrowData, refetch }) => {
 
     }
 
-    if (!data) { return <Loading></Loading> }
-
+    //added in github
+    if (!isDataLoading && !data) {return <h1>Deleted book/not available</h1>}
+    if (isDataLoading) { return <Loading></Loading> }
+    
     const { img, name, category, } = data
 
     return (
